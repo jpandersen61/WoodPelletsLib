@@ -8,15 +8,12 @@ namespace WoodPelletsLib
 {
     public class WoodPelletRepository
     {
+
         List<WoodPellet> woodPellets = new List<WoodPellet>();
 
         public WoodPelletRepository()
         {
-            woodPellets.Add(new WoodPellet(1, "BioWood", 4995,4));
-            woodPellets.Add(new WoodPellet(2, "BioWood", 5195, 4));
-            woodPellets.Add(new WoodPellet(3, "BilligPille", 4125, 1));
-            woodPellets.Add(new WoodPellet(4, "GoldenWoodPellet", 5995, 1));
-            woodPellets.Add(new WoodPellet(5, "GoldenWoodPellet", 5795, 5));
+           
         }
 
         public List<WoodPellet> GetAll()
@@ -31,7 +28,12 @@ namespace WoodPelletsLib
         
         public void Add(WoodPellet wp)
         {
-            int nextID = woodPellets.Max<WoodPellet>(w => w.Id);
+            int nextID = 1;
+            if (woodPellets.Count > 0)
+            {
+                nextID = woodPellets.Max<WoodPellet>(w => w.Id) + 1;      
+            }
+
             wp.Id = nextID;
             woodPellets.Add(wp);
         }
