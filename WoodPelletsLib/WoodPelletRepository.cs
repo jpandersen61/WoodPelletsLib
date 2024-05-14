@@ -26,7 +26,7 @@ namespace WoodPelletsLib
             return new List<WoodPellet>(woodPellets).FindAll(w => w.Id == id);
         }   
         
-        public void Add(WoodPellet wp)
+        public void Add(WoodPellet wps)
         {
             int nextID = 1;
             if (woodPellets.Count > 0)
@@ -34,8 +34,8 @@ namespace WoodPelletsLib
                 nextID = woodPellets.Max<WoodPellet>(w => w.Id) + 1;      
             }
 
-            wp.Id = nextID;
-            woodPellets.Add(wp);
+            wps.Id = nextID;
+            woodPellets.Add(wps);
         }
         
         public void Update(WoodPellet wp)
